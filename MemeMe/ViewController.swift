@@ -8,14 +8,24 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.topTextField.delegate = self
+        self.bottomTextField.delegate = self
+        
+        // TextField Properties
+        topTextField.text = "TOP"
+        topTextField.textAlignment = NSTextAlignment.Center
+        bottomTextField.text = "BOTTOM"
+        bottomTextField.textAlignment = NSTextAlignment.Center
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +68,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
+    // Delegate method for changing text inside textField
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        var newText: NSString = textField.text!
+        newText = newText.stringByReplacingCharactersInRange(range, withString: string)
+        return true;
+    }
+    
+    // Delegate method to clear text when user taps inside textField
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.text = ""
+    }
+    
+    // Delegate method to dismiss keyboard after return
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
 }
 
