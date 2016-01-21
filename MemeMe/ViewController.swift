@@ -21,6 +21,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         self.topTextField.delegate = self
         self.bottomTextField.delegate = self
         
+        // Sets default text attributes
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeWidthAttributeName : 3.0
+        ]
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        
         // TextField Properties
         topTextField.text = "TOP"
         topTextField.textAlignment = NSTextAlignment.Center
