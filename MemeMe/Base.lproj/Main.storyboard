@@ -80,6 +80,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="x0T-So-Wn2" id="Pa3-Iv-coV"/>
                         <outlet property="imagePickerView" destination="LfT-mI-pQL" id="xn8-Zp-762"/>
                     </connections>
                 </viewController>
