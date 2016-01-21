@@ -22,11 +22,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Dispose of any resources that can be recreated.
     }
 
-    // Method for selecting an image from Photo library
-    // IBAction linked to 'Album' button in toolbar
-    @IBAction func pickAnImage(sender: AnyObject) {
+    // Method for selecting an image from the Camera
+    // IBAction linked to button with camera icon
+    @IBAction func pickImageFromCamera(sender: AnyObject) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
+        pickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(pickerController, animated: true, completion: nil)
+    }
+    
+    // Method for selecting an image from the Photo library
+    // IBAction linked to 'Album' button in toolbar
+    @IBAction func pickImageFromAlbum(sender: AnyObject) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
     

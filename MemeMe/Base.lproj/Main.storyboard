@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LfT-mI-pQL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LfT-mI-pQL">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="80" y="180" width="240" height="240"/>
@@ -27,9 +28,14 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEy-hE-V3K">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
+                                    <barButtonItem systemItem="camera" id="x0T-So-Wn2">
+                                        <connections>
+                                            <action selector="pickImageFromCamera:" destination="BYZ-38-t0r" id="oup-34-cxk"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Album" id="LsM-VB-wvh">
                                         <connections>
-                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="Tjz-oI-ijg"/>
+                                            <action selector="pickImageFromAlbum:" destination="BYZ-38-t0r" id="pVv-1c-7Qv"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -50,12 +56,12 @@
                                 <exclude reference="jEy-hE-V3K"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="EMa-tJ-XCc"/>
-                                <exclude reference="pjw-kR-c4s"/>
+                                <exclude reference="WNa-bU-xGV"/>
                                 <exclude reference="7jI-G4-xGY"/>
                                 <exclude reference="UxW-hp-xii"/>
                                 <exclude reference="WUq-cX-7Jw"/>
-                                <exclude reference="WNa-bU-xGV"/>
+                                <exclude reference="EMa-tJ-XCc"/>
+                                <exclude reference="pjw-kR-c4s"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -64,12 +70,12 @@
                                 <include reference="jEy-hE-V3K"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="EMa-tJ-XCc"/>
-                                <include reference="pjw-kR-c4s"/>
+                                <include reference="WNa-bU-xGV"/>
                                 <include reference="7jI-G4-xGY"/>
                                 <include reference="UxW-hp-xii"/>
                                 <include reference="WUq-cX-7Jw"/>
-                                <include reference="WNa-bU-xGV"/>
+                                <include reference="EMa-tJ-XCc"/>
+                                <include reference="pjw-kR-c4s"/>
                             </mask>
                         </variation>
                     </view>
