@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,8 +17,65 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LfT-mI-pQL">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="80" y="180" width="240" height="240"/>
+                                </variation>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEy-hE-V3K">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Album" id="LsM-VB-wvh">
+                                        <connections>
+                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="Tjz-oI-ijg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jEy-hE-V3K" firstAttribute="top" secondItem="LfT-mI-pQL" secondAttribute="bottom" constant="136" id="7jI-G4-xGY"/>
+                            <constraint firstItem="LfT-mI-pQL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EMa-tJ-XCc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jEy-hE-V3K" secondAttribute="trailing" constant="-20" id="UxW-hp-xii"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jEy-hE-V3K" secondAttribute="bottom" id="WNa-bU-xGV"/>
+                            <constraint firstItem="jEy-hE-V3K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="WUq-cX-7Jw"/>
+                            <constraint firstItem="LfT-mI-pQL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pjw-kR-c4s"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="LfT-mI-pQL"/>
+                                <exclude reference="jEy-hE-V3K"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="EMa-tJ-XCc"/>
+                                <exclude reference="pjw-kR-c4s"/>
+                                <exclude reference="7jI-G4-xGY"/>
+                                <exclude reference="UxW-hp-xii"/>
+                                <exclude reference="WUq-cX-7Jw"/>
+                                <exclude reference="WNa-bU-xGV"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="LfT-mI-pQL"/>
+                                <include reference="jEy-hE-V3K"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="EMa-tJ-XCc"/>
+                                <include reference="pjw-kR-c4s"/>
+                                <include reference="7jI-G4-xGY"/>
+                                <include reference="UxW-hp-xii"/>
+                                <include reference="WUq-cX-7Jw"/>
+                                <include reference="WNa-bU-xGV"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="imagePickerView" destination="LfT-mI-pQL" id="xn8-Zp-762"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
