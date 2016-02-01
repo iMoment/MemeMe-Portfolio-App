@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!,
             NSStrokeWidthAttributeName : 3.0
         ]
         topTextField.defaultTextAttributes = memeTextAttributes
@@ -44,6 +44,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         // Disable camera button if platform has no camera
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }

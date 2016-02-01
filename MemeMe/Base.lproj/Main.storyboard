@@ -25,8 +25,9 @@
                                     <barButtonItem title="Cancel" id="o3Y-BK-RFX"/>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6c9-Cl-gX0" userLabel="ImagePicker">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vJa-hu-e1z">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDY-UI-wko" userLabel="BottomToolbar">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -46,48 +47,72 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="6dU-tw-jFf"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ca-d8-VhU" userLabel="Top Text Field">
-                                <rect key="frame" x="150" y="500" width="300" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GBe-Fb-2OS" userLabel="Top Text Field">
+                                <rect key="frame" x="150" y="93" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="FhG-qu-ZNH"/>
+                                    <constraint firstAttribute="height" constant="35" id="PhP-b0-VV0"/>
+                                    <constraint firstAttribute="height" constant="35" id="T0a-WQ-Ik6"/>
+                                    <constraint firstAttribute="width" constant="300" id="n6r-YQ-w4R"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="T0a-WQ-Ik6"/>
+                                        <exclude reference="n6r-YQ-w4R"/>
+                                    </mask>
+                                </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qMl-Dl-lQ2" userLabel="Bottom Text Field">
-                                <rect key="frame" x="150" y="100" width="300" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XyM-ni-zrw" userLabel="Bottom Text Field">
+                                <rect key="frame" x="150" y="503" width="300" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="XOm-tf-Itg"/>
+                                    <constraint firstAttribute="width" constant="300" id="gBs-xu-vMB"/>
+                                    <constraint firstAttribute="height" constant="35" id="uZM-YU-Qtk"/>
+                                    <constraint firstAttribute="height" constant="35" id="yMa-Fo-zIY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="gBs-xu-vMB"/>
+                                        <exclude reference="yMa-Fo-zIY"/>
+                                    </mask>
+                                </variation>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8ca-d8-VhU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="623-CI-TJo"/>
-                            <constraint firstItem="6c9-Cl-gX0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8oS-VH-bJJ"/>
                             <constraint firstAttribute="trailing" secondItem="oDY-UI-wko" secondAttribute="trailing" id="Cap-76-jxa"/>
                             <constraint firstItem="JB7-qk-uOS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Czh-I5-Ej0"/>
-                            <constraint firstItem="qMl-Dl-lQ2" firstAttribute="top" secondItem="JB7-qk-uOS" secondAttribute="bottom" constant="24" id="KGg-EU-cVP"/>
+                            <constraint firstItem="vJa-hu-e1z" firstAttribute="top" secondItem="JB7-qk-uOS" secondAttribute="bottom" id="GR0-aj-Swy"/>
                             <constraint firstItem="JB7-qk-uOS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KPn-zO-3qg"/>
+                            <constraint firstItem="GBe-Fb-2OS" firstAttribute="top" secondItem="JB7-qk-uOS" secondAttribute="bottom" constant="15" id="KdV-3O-0se"/>
+                            <constraint firstItem="oDY-UI-wko" firstAttribute="top" secondItem="vJa-hu-e1z" secondAttribute="bottom" id="Nzt-Ku-pNa"/>
                             <constraint firstItem="oDY-UI-wko" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="OuX-yc-uW3"/>
                             <constraint firstItem="oDY-UI-wko" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="W1w-fm-JYL"/>
-                            <constraint firstAttribute="trailing" secondItem="6c9-Cl-gX0" secondAttribute="trailing" id="aOv-lq-NJl"/>
+                            <constraint firstItem="vJa-hu-e1z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Zk0-Cf-clS"/>
+                            <constraint firstItem="oDY-UI-wko" firstAttribute="top" secondItem="XyM-ni-zrw" secondAttribute="bottom" constant="15" id="baA-Qb-TX3"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oDY-UI-wko" secondAttribute="bottom" id="bml-VU-cqJ"/>
-                            <constraint firstItem="oDY-UI-wko" firstAttribute="top" secondItem="8ca-d8-VhU" secondAttribute="bottom" constant="24" id="emI-Ke-0Vm"/>
+                            <constraint firstItem="XyM-ni-zrw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hc8-dL-aBu"/>
                             <constraint firstAttribute="trailing" secondItem="JB7-qk-uOS" secondAttribute="trailing" id="heC-Zu-RgX"/>
                             <constraint firstItem="JB7-qk-uOS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qbA-fh-YSE"/>
-                            <constraint firstItem="oDY-UI-wko" firstAttribute="top" secondItem="6c9-Cl-gX0" secondAttribute="bottom" id="rQz-uH-LtQ"/>
-                            <constraint firstItem="6c9-Cl-gX0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rsz-d9-U0s"/>
-                            <constraint firstItem="6c9-Cl-gX0" firstAttribute="top" secondItem="JB7-qk-uOS" secondAttribute="bottom" id="zpc-gL-sLJ"/>
-                            <constraint firstItem="qMl-Dl-lQ2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zpd-dR-v4G"/>
+                            <constraint firstAttribute="trailing" secondItem="vJa-hu-e1z" secondAttribute="trailing" id="tAu-Nb-BQG"/>
+                            <constraint firstItem="GBe-Fb-2OS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tiy-WZ-cgv"/>
+                            <constraint firstItem="vJa-hu-e1z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wMt-GW-RTi"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bottomTextField" destination="8ca-d8-VhU" id="AAL-Oi-U2p"/>
-                        <outlet property="cameraButton" destination="lXC-Y0-Y8k" id="GC1-wM-JU4"/>
-                        <outlet property="imagePickerView" destination="6c9-Cl-gX0" id="xVe-k6-WWG"/>
-                        <outlet property="topTextField" destination="qMl-Dl-lQ2" id="zgh-ga-gYP"/>
+                        <outlet property="bottomTextField" destination="XyM-ni-zrw" id="a1i-Cq-hW7"/>
+                        <outlet property="cameraButton" destination="lXC-Y0-Y8k" id="xt3-wf-7gg"/>
+                        <outlet property="imagePickerView" destination="vJa-hu-e1z" id="8kj-9d-2F8"/>
+                        <outlet property="topTextField" destination="GBe-Fb-2OS" id="6ND-Uq-VxF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="375" y="307"/>
+            <point key="canvasLocation" x="375" y="306"/>
         </scene>
     </scenes>
 </document>
