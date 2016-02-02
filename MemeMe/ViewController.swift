@@ -57,6 +57,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         super.viewDidAppear(animated)
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //  Unsubscribe from keyboard notifications
+        self.unsubscribeFromKeyboardNotifications()
+    }
+    
     // Method for selecting an image from the Camera
     // IBAction linked to button with camera icon
     @IBAction func pickImageFromCamera(sender: AnyObject) {
@@ -109,6 +116,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     //  Observe UIKeyboardWillShowNotification
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    //  Remove Observer
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name:
+            UIKeyboardWillShowNotification, object: nil)
     }
     
     //  Shift the view in response to the UIKeyboardWillShowNotification
