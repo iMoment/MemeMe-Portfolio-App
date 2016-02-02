@@ -48,6 +48,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         // Disable camera button if platform has no camera
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        
+        // Subscribe to keyboard notifications to allow the view to raise when necessary
+        self.subscribeToKeyboardNotifications()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     // Method for selecting an image from the Camera
@@ -97,6 +104,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;
+    }
+    
+    //  Observe UIKeyboardWillShowNotification
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     }
 }
 
