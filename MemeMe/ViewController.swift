@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var topToolBar: UIToolbar!
     @IBOutlet weak var bottomToolBar: UIToolbar!
+    @IBOutlet weak var activityViewButton: UIBarButtonItem!
     
     struct Meme {
         var topText: String!
@@ -60,8 +61,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         // Subscribe to keyboard notifications to allow the view to raise when necessary
         self.subscribeToKeyboardNotifications()
+        
+        // Disable share button before user has chosen an image
+        //activityViewButton.enabled = false
     }
-    
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -91,6 +95,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
     
+    @IBAction func activityView(sender: UIBarButtonItem) {
+        let newMemedImage : UIImage = generateMemedImage()
+        let nextController = UIActivityViewController(activityItems: [newMemedImage], applicationActivities: nil)
+        self.presentViewController(nextController, animated: true, completion: nil)
+    }
     // Delegate method when a user selects an image or movie
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
