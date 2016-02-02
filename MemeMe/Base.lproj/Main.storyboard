@@ -105,9 +105,11 @@
                     </view>
                     <connections>
                         <outlet property="bottomTextField" destination="XyM-ni-zrw" id="a1i-Cq-hW7"/>
+                        <outlet property="bottomToolBar" destination="oDY-UI-wko" id="zx5-SA-2rI"/>
                         <outlet property="cameraButton" destination="lXC-Y0-Y8k" id="xt3-wf-7gg"/>
                         <outlet property="imagePickerView" destination="vJa-hu-e1z" id="8kj-9d-2F8"/>
                         <outlet property="topTextField" destination="GBe-Fb-2OS" id="6ND-Uq-VxF"/>
+                        <outlet property="topToolBar" destination="JB7-qk-uOS" id="jK9-qW-wNa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -14,6 +14,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var topToolBar: UIToolbar!
+    @IBOutlet weak var bottomToolBar: UIToolbar!
+    
+    struct Meme {
+        var topText: String!
+        var bottomText: String!
+        var originalImage: UIImage!
+        var memedImage: UIImage!
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,25 +138,42 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     //  Shift the view up in response to the UIKeyboardWillShowNotification
     func keyboardWillShow(notification: NSNotification) {
-        //self.view.frame.origin.y -= getKeyboardHeight(notification)
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
-            self.view.frame.origin.y -= keyboardSize.height
-        }
+        self.view.frame.origin.y -= getKeyboardHeight(notification)
     }
     
     //  Shift the view down in response to the UIKeyboardWillHideNotification
     func keyboardWillHide(notification: NSNotification) {
-        //self.view.frame.origin.y += getKeyboardHeight(notification)
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
-            self.view.frame.origin.y += keyboardSize.height
-        }
+        self.view.frame.origin.y += getKeyboardHeight(notification)
     }
     
     //  Get the keyboard height from the notification’s userInfo dictionary
-//    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
-//        let userInfo = notification.userInfo
-//        let keyboardSize = userInfo![UIKeyboardFrameBeginUserInfoKey] as! NSValue // of CGRect
-//        return keyboardSize.CGRectValue().height
-//    }
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.CGRectValue().height
+    }
+    
+    func saveMeme() {
+        let meme = Meme(topText: topTextField.text, bottomText: bottomTextField.text, originalImage: imagePickerView.image, memedImage: generateMemedImage())
+    }
+    
+    func generateMemedImage() -> UIImage
+    {
+        topToolBar.hidden = true
+        bottomToolBar.hidden = true
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame,
+            afterScreenUpdates: true)
+        let memedImage : UIImage =
+        UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        topToolBar.hidden = false
+        bottomToolBar.hidden = false
+        
+        return memedImage
+    }
 }
 
