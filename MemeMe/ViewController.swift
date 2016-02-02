@@ -116,24 +116,38 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     //  Observe UIKeyboardWillShowNotification
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     //  Remove Observer
     func unsubscribeFromKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name:
             UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name:
+            UIKeyboardWillHideNotification, object: nil)
     }
     
-    //  Shift the view in response to the UIKeyboardWillShowNotification
+    //  Shift the view up in response to the UIKeyboardWillShowNotification
     func keyboardWillShow(notification: NSNotification) {
-        self.view.frame.origin.y -= getKeyboardHeight(notification)
+        //self.view.frame.origin.y -= getKeyboardHeight(notification)
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y -= keyboardSize.height
+        }
+    }
+    
+    //  Shift the view down in response to the UIKeyboardWillHideNotification
+    func keyboardWillHide(notification: NSNotification) {
+        //self.view.frame.origin.y += getKeyboardHeight(notification)
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y += keyboardSize.height
+        }
     }
     
     //  Get the keyboard height from the notification’s userInfo dictionary
-    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
-        let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
-        return keyboardSize.CGRectValue().height
-    }
+//    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+//        let userInfo = notification.userInfo
+//        let keyboardSize = userInfo![UIKeyboardFrameBeginUserInfoKey] as! NSValue // of CGRect
+//        return keyboardSize.CGRectValue().height
+//    }
 }
 
