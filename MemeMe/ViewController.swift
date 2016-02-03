@@ -27,7 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         self.topTextField.delegate = self
         self.bottomTextField.delegate = self
         
@@ -61,13 +61,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         // Subscribe to keyboard notifications to allow the view to raise when necessary
         self.subscribeToKeyboardNotifications()
-        
-        // Disable share button before user has chosen an image
-        //activityViewButton.enabled = false
-    }
-
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -95,12 +88,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
     
+    // Method for sharing meme image
+    // IBAction linked to 'Action' button in toolbar
     @IBAction func activityView(sender: UIBarButtonItem) {
         let newMemedImage : UIImage = generateMemedImage()
         let nextController = UIActivityViewController(activityItems: [newMemedImage], applicationActivities: nil)
         self.presentViewController(nextController, animated: true, completion: nil)
     }
-    // Delegate method when a user selects an image or movie
+    
+    // Delegate method when a user selects an image or movie from the image picker
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imagePickerView.image = selectedImage
@@ -108,7 +104,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         }
     }
     
-    // Delegate method when a user selects cancel
+    // Delegate method when a user selects cancel from the image picker
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -162,12 +158,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         return keyboardSize.CGRectValue().height
     }
     
-    func saveMeme() {
-        let meme = Meme(topText: topTextField.text, bottomText: bottomTextField.text, originalImage: imagePickerView.image, memedImage: generateMemedImage())
-    }
-    
-    func generateMemedImage() -> UIImage
-    {
+    func generateMemedImage() -> UIImage {
         topToolBar.hidden = true
         bottomToolBar.hidden = true
         

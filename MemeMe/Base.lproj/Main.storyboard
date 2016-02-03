@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,6 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vJa-hu-e1z">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JB7-qk-uOS" userLabel="TopToolbar">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
@@ -29,10 +33,6 @@
                                     <barButtonItem title="Cancel" id="o3Y-BK-RFX"/>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vJa-hu-e1z">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDY-UI-wko" userLabel="BottomToolbar">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
@@ -88,9 +88,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vJa-hu-e1z" secondAttribute="bottom" id="4yC-uo-MrZ"/>
                             <constraint firstAttribute="trailing" secondItem="oDY-UI-wko" secondAttribute="trailing" id="Cap-76-jxa"/>
                             <constraint firstItem="JB7-qk-uOS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Czh-I5-Ej0"/>
                             <constraint firstItem="vJa-hu-e1z" firstAttribute="top" secondItem="JB7-qk-uOS" secondAttribute="bottom" id="GR0-aj-Swy"/>
+                            <constraint firstItem="vJa-hu-e1z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JDp-f6-1KW"/>
                             <constraint firstItem="JB7-qk-uOS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KPn-zO-3qg"/>
                             <constraint firstItem="GBe-Fb-2OS" firstAttribute="top" secondItem="JB7-qk-uOS" secondAttribute="bottom" constant="15" id="KdV-3O-0se"/>
                             <constraint firstItem="oDY-UI-wko" firstAttribute="top" secondItem="vJa-hu-e1z" secondAttribute="bottom" id="Nzt-Ku-pNa"/>
@@ -101,11 +103,21 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oDY-UI-wko" secondAttribute="bottom" id="bml-VU-cqJ"/>
                             <constraint firstItem="XyM-ni-zrw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hc8-dL-aBu"/>
                             <constraint firstAttribute="trailing" secondItem="JB7-qk-uOS" secondAttribute="trailing" id="heC-Zu-RgX"/>
+                            <constraint firstAttribute="trailing" secondItem="vJa-hu-e1z" secondAttribute="trailing" id="kmT-gQ-7HQ"/>
+                            <constraint firstItem="vJa-hu-e1z" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pUF-xH-EP5"/>
                             <constraint firstItem="JB7-qk-uOS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qbA-fh-YSE"/>
                             <constraint firstAttribute="trailing" secondItem="vJa-hu-e1z" secondAttribute="trailing" id="tAu-Nb-BQG"/>
                             <constraint firstItem="GBe-Fb-2OS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tiy-WZ-cgv"/>
                             <constraint firstItem="vJa-hu-e1z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wMt-GW-RTi"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="GR0-aj-Swy"/>
+                                <exclude reference="Zk0-Cf-clS"/>
+                                <exclude reference="tAu-Nb-BQG"/>
+                                <exclude reference="Nzt-Ku-pNa"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="activityViewButton" destination="uhV-Od-gVk" id="Y3F-oi-Dd8"/>
