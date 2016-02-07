@@ -158,6 +158,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         return keyboardSize.CGRectValue().height
     }
     
+    func save() {
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
+    }
+    
     func generateMemedImage() -> UIImage {
         topToolBar.hidden = true
         bottomToolBar.hidden = true
